@@ -10,9 +10,8 @@ fileElement.addEventListener('change', (event) => {
 });
 buttonElement.addEventListener('click', async () => {
   const formData = new FormData();
-  fileList.forEach(async (file) => {
-    formData.append('files', file);
-    const res = await api.multipartUpload(formData);
-    console.log('res :>> ', res);
-  });
+  const file = fileList[0];
+  const chunks = [];
+  const chunkSize = 1024 * 1024;
+  const totalChunks = Math.ceil(file.size / chunkSize);
 });
