@@ -9,9 +9,22 @@ fileElement.addEventListener('change', (event) => {
   fileList = Array.from(target.files as FileList);
 });
 buttonElement.addEventListener('click', async () => {
-  const formData = new FormData();
   const file = fileList[0];
   const chunks = [];
   const chunkSize = 1024 * 1024;
   const totalChunks = Math.ceil(file.size / chunkSize);
+  for (let i = 0; i < totalChunks; i++) {
+    const start = i * chunkSize;
+    const end = Math.min(start + chunkSize, file.size);
+    const chunk = file.slice(start, end);
+    chunks.push(chunk);
+  }
+  chunks.forEach(async (chunk, index) => {
+    const formData = new FormData();
+    formData.append('file', chunk, file.name);
+    formData.append('chunk', (index + 1).toString());
+    formData.append('totalChunks', totalChunks.toString());
+    const res = await api.multipartUpload(formData);
+    console.log('res :>> ', res);
+  });
 });

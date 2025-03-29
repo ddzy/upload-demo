@@ -121,3 +121,9 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+# 忽略上传目录
+/server/uploads/
+
+# 忽略所有的DS_Store文件
+.DS_Store
