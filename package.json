@@ -8,6 +8,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "vite",
+    "dev:server": "nodemon --watch 'server/**/*.ts' --exec 'tsx server/index.ts'",
     "build": "vite build",
     "prettier": "prettier --write ."
   },
@@ -18,11 +19,16 @@
   "devDependencies": {
     "@types/koa": "^2.15.0",
     "@types/node": "^22.13.14",
+    "nodemon": "^3.1.9",
     "prettier": "^3.3.2",
+    "tsx": "^4.19.3",
     "typescript": "^5.8.2",
     "vite": "^6.2.3"
   },
   "dependencies": {
+    "@koa/bodyparser": "^5.1.1",
+    "@koa/multer": "^3.1.0",
+    "@koa/router": "^13.1.0",
     "axios": "^1.8.4",
     "koa": "^2.16.0"
   }

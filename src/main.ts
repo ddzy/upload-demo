@@ -8,9 +8,11 @@ fileElement.addEventListener('change', (event) => {
   const target = event.target as HTMLInputElement;
   fileList = Array.from(target.files as FileList);
 });
-buttonElement.addEventListener('click', () => {
+buttonElement.addEventListener('click', async () => {
   const formData = new FormData();
-  fileList.forEach((file) => {
+  fileList.forEach(async (file) => {
     formData.append('files', file);
+    const res = await api.multipartUpload(formData);
+    console.log('res :>> ', res);
   });
 });
