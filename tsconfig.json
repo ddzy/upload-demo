@@ -1,0 +1,36 @@
+{
+  "compilerOptions": {
+    // 目标 ECMAScript 版本
+    "target": "ESNext",
+    // 模块系统
+    "module": "ESNext",
+    // 允许从没有设置默认导出的模块中默认导入
+    "esModuleInterop": true,
+    // 启用所有严格类型检查选项
+    "strict": true,
+    // 解析非相对模块名的基础目录
+    "baseUrl": ".",
+    // 模块名到基于 baseUrl 的路径映射的列表
+    "paths": {
+      "@/*": ["src/*"]
+    },
+    // 启用增量编译
+    "incremental": true,
+    // 生成相应的 .map 文件
+    "sourceMap": true,
+    // 以 .js 结尾的文件中允许导入
+    "allowJs": true,
+    // 检查 .js 文件中的错误
+    "checkJs": true,
+    // 生成代码时，保留所有注释
+    "removeComments": false,
+    // 不生成输出文件
+    "noEmit": false,
+    // 确保导入的文件存在
+    "skipLibCheck": true,
+    // 对 .tsx 文件使用 JSX 模式
+    "jsx": "react-jsx"
+  },
+  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.js", "src/**/*.jsx"],
+  "exclude": ["node_modules", "dist"]
+}
